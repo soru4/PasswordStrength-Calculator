@@ -56,7 +56,29 @@ int main(){
     }
     long double time = pow(2, entropy) / pow(10,11); 
     double years  = time/ (60*60*24*365);
+    double days = years * 365;
+    double hours = days * 24; 
+    double minutes = hours * 60; 
+  \
+    if(time *1000000 < 10 ){
+         cout << "your password will take " << time * 1000000000 << " microseconds to brute force the hash." <<endl;
+    }
+     else if(time * 1000 < 2 ){
+        cout << "your password will take " << time * 1000000 << " microseconds to brute force the hash." <<endl;
 
-    cout << "your password will take " << years << " years to brute force the hash." <<endl;
+    }
+    else if(time < 2 ){
+        cout << "your password will take " << time * 1000 << " milliseconds to brute force the hash." <<endl;
 
+    }else if(minutes < 2 ){
+        cout << "your password will take " << time << " seconds to brute force the hash." <<endl;
+    }else if(hours < 2 ){
+        cout << "your password will take " << minutes << " minutes to brute force the hash." <<endl;
+    }else if(days < 3 ){
+        cout << "your password will take " << hours << " hours to brute force the hash." <<endl;
+    }else if(years < 1.1){
+        
+        cout << "your password will take " << days << " days to brute force the hash." <<endl;
+    }else if(years > 1.1)
+        cout << "your password will take " << years << " years to brute force the hash." <<endl;
 }
